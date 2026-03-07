@@ -27,7 +27,7 @@ subjectsRouter.get("/", async (req, res) => {
 
     // If department filter exists, match department name
     if (department) {
-      const deptPattern = `%${String(department).replace(/[%_]/g, "\\$&")}%`;
+      const deptPattern = `%${String(department).replace(/[%_]/g, "\\$&")}%`; //For sql injections
       filterConditions.push(ilike(departments.name, deptPattern));
     }
 
